@@ -1,13 +1,19 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'clover2lcov'
+description: 'Convert Clover files to LCOV reports'
+author: 'André Storhaug'
+branding:
+  icon: 'file-text'  
+  color: 'purple'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  src:
+    description: 'File path to clover report'
     required: true
-    default: '1000'
+  dst:
+    description:  'Destination path to final lcov report'
+    required: false
 outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  file:
+    description: 'The file path for the resulting lcov report file'
 runs:
   using: 'node12'
   main: 'dist/index.js'

@@ -13,7 +13,7 @@ async function run() {
       dst = path.parse(src).name + '.info';
     }
 
-    core.info(`Converting clover to lcov format...`);
+    core.info(`Converting Clover to LCOV format...`);
     
     try {
       // eslint-disable-next-line no-undef
@@ -31,12 +31,12 @@ async function run() {
       const dstPath = path.join(GITHUB_WORKSPACE, dst);
       await fs.promises.writeFile(dstPath, lcovData);
     } catch (error) {
-      core.setFailed('⛔️ Unable to convert to lcov');
+      core.setFailed('⛔️ Unable to convert to LCOV');
       return;
     }
 
     core.setOutput('file', dst);
-    core.info('🎉 Successfully converted clover file to lcov format');
+    core.info('🎉 Successfully converted Clover file to LCOV format');
   } catch (error) {
     core.setFailed(error.message);
   }
