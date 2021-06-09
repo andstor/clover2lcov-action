@@ -1,18 +1,42 @@
 const core = require('@actions/core');
-const wait = require('./wait');
+const fs = require("fs");
+const path = require('path');
+const clover2lcov = require('clover2lcov');
 
-
-// most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput('milliseconds');
-    core.info(`Waiting ${ms} milliseconds ...`);
+    let data;
+    const src = core.getInput('src');
+    let dst = core.getInput('dst');
 
-    core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms));
-    core.info((new Date()).toTimeString());
+    if (!dst) {
+      dst = path.parse(src).name + '.info';
+    }
 
-    core.setOutput('time', new Date().toTimeString());
+    core.info(`Converting clover to lcov format...`);
+    
+    try {
+      // eslint-disable-next-line no-undef
+      const srcPath = path.join(GITHUB_WORKSPACE, src);
+      data = await fs.promises.readFile(srcPath);
+    } catch (error) {
+      core.setFailed('⛔️ Source file does not exist');
+      return;
+    }
+    
+    let lcovData = await clover2lcov.toLcov(data);
+
+    try {
+      // eslint-disable-next-line no-undef
+      const dstPath = path.join(GITHUB_WORKSPACE, dst);
+      await fs.promises.writeFile(dstPath, lcovData);
+    } catch (error) {
+      core.setFailed('⛔️ Unable to convert to lcov');
+      return;
+    }
+
+    core.setOutput('file', dst);
+    core.info('🎉 Successfully converted clover file to lcov format');
   } catch (error) {
     core.setFailed(error.message);
   }

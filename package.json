@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
+  "name": "clover2lcov-action",
   "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "description": "GitHub Action for converting Clover reports to LCOV reports",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,21 +11,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/andstor/clover2lcov-action.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
-    "JavaScript"
+    "coverage",
+    "clover",
+    "lcov"
   ],
-  "author": "",
+  "author": {
+    "name": "André Storhaug",
+    "email": "andr3.storhaug@gmail.com",
+    "url": "https://github.com/andstor"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/andstor/clover2lcov-action/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/andstor/clover2lcov-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5"
+    "@actions/core": "^1.2.5",
+    "clover2lcov": "^1.0.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.27.0",
