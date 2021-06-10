@@ -17,8 +17,7 @@ async function run() {
     
     try {
       // eslint-disable-next-line no-undef
-      const srcPath = path.join(GITHUB_WORKSPACE, src);
-      data = await fs.promises.readFile(srcPath);
+      data = await fs.promises.readFile(src);
     } catch (error) {
       core.setFailed('⛔️ Source file does not exist');
       return;
@@ -28,9 +27,8 @@ async function run() {
 
     try {
       // eslint-disable-next-line no-undef
-      const dstPath = path.join(GITHUB_WORKSPACE, dst);
-      await fs.promises.mkdir(path.dirname(dstPath), { recursive: true });
-      await fs.promises.writeFile(dstPath, lcovData);
+      await fs.promises.mkdir(path.dirname(dst), { recursive: true });
+      await fs.promises.writeFile(dst, lcovData);
     } catch (error) {
       core.setFailed('⛔️ Unable to convert to LCOV');
       return;

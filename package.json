@@ -1,6 +1,6 @@
 {
   "name": "clover2lcov-action",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "GitHub Action for converting Clover reports to LCOV reports",
   "main": "index.js",
   "scripts": {
