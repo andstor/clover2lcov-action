@@ -2,8 +2,6 @@
 
 > GitHub Action for converting Clover files to LCOV reports
 
-![build-test](https://github.com/andstor/clover2lcov-action/workflows/build/badge.svg)
-
 This is a [GitHub Action](https://developer.github.com/actions/) to convert code coverage reopors from Clover to LCOV format.
 
 ## Usage
