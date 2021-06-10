@@ -29,6 +29,7 @@ async function run() {
     try {
       // eslint-disable-next-line no-undef
       const dstPath = path.join(GITHUB_WORKSPACE, dst);
+      await fs.promises.mkdir(path.dirname(dstPath), { recursive: true });
       await fs.promises.writeFile(dstPath, lcovData);
     } catch (error) {
       core.setFailed('⛔️ Unable to convert to LCOV');
