@@ -28,7 +28,7 @@ The following input variables options can/must be configured:
 |`dst`|Optional|the encoding of the file to read.|`src` with `.info` extension|
 
 ## Outputs
-- `file`: The path to thhe converted LCOV file.
+- `file`: The path to the converted LCOV file.
 ## License
 
 Copyright © 2021 [André Storhaug](https://github.com/andstor)
