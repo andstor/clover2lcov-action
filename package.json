@@ -35,7 +35,7 @@
     "clover2lcov": "^1.0.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.28.6",
+    "@vercel/ncc": "^0.30.0",
     "eslint": "^7.28.0",
     "jest": "^27.0.4"
   }
