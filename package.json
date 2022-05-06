@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/andstor/clover2lcov-action#readme",
   "dependencies": {
-    "@actions/core": "^1.4.0",
+    "@actions/core": "^1.8.0",
     "clover2lcov": "^1.0.0"
   },
   "devDependencies": {
